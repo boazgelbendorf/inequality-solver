@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+body {
+  background-color: rgb(0, 255, 242);
+}
+</style>
+<h3>Boaz and Yoni checking equality or a inequality</h3>
+
+<input type="text" id="inequality" value="write a equality or a inequality">
+<br>
+<br>
+<input type="text" id="value" value="write a value">
+<p>Check if it is satisfied:</p>
+
+<button onclick="myFunction()">Check it</button>
+
+<p id="demo"></p>
+
+<script>
+    function myFunction() {
+        var ineq = document.getElementById("inequality").value;
+        var val = document.getElementById("value").value; 
+
+        document.getElementById("demo").innerHTML =isSatisfied(ineq,val);
+    }
+
+    function isSatisfied(inequality,value){
+        console.log(inequality)
+        console.log(value)
+        inequality = inequality.replace('x',value);
+        inequality = inequality.replace('=','==');
+        console.log(inequality)
+        if(eval(inequality)){
+            return "yes!";
+        }else{
+            return "no!";
+        }
+    }
+
+</script>
+
+</body>
+</html>
