@@ -3,43 +3,37 @@
 <body>
 <style>
 body {
-  background-color: rgb(0, 255, 242);
+  background-color: rgb(255, 123, 0);
 }
 </style>
-<h3>Boaz and Yoni checking equality or a inequality</h3>
+<button onclick="Add_10_Points()">10 points</button>
 
-<input type="text" id="inequality" value="write a equality or a inequality">
-<br>
-<br>
-<input type="text" id="value" value="write a value">
-<p>Check if it is satisfied:</p>
+<canvas id="myCanvas" width="500" height="500" style="border:1px solid #000000;">
+    Your browser does not support the HTML5 canvas tag.
+    </canvas>
+    <script>
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(250,250,250,0,2*Math.PI);
+        ctx.stroke();
 
-<button onclick="myFunction()">Check it</button>
-
-<p id="demo"></p>
-
-<script>
-    function myFunction() {
-        var ineq = document.getElementById("inequality").value;
-        var val = document.getElementById("value").value; 
-
-        document.getElementById("demo").innerHTML =isSatisfied(ineq,val);
-    }
-
-    function isSatisfied(inequality,value){
-        console.log(inequality)
-        console.log(value)
-        inequality = inequality.replace('x',value);
-        inequality = inequality.replace('=','==');
-        console.log(inequality)
-        if(eval(inequality)){
-            return "yes!";
-        }else{
-            return "no!";
+        function  Add_10_Points(){
+        
+          for(i=0;i<10;i++){
+          
+            var x = getRandomInt(500)
+            var y = getRandomInt(500)
+            ctx.fillRect(x,y,1,1); 
+          }
         }
-    }
 
-</script>
+        function getRandomInt(max) {
+          return Math.floor(Math.random() * Math.floor(max));
+        }
+        
+        </script> 
 
 </body>
 </html>
+
